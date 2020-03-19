@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-
+import 'vaccine.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget{
@@ -23,14 +23,23 @@ class MyApp extends StatelessWidget{
           child: ListView(
             padding: EdgeInsets.zero,
               children: <Widget>[
+
           DrawerHeader(
 
-          child: Center(
-           child: Text('Mr.Robert',style: TextStyle(
-              fontSize: 20.0,
-            ),
 
-            ),
+          child: Center(
+            child: Text("Robert",style: TextStyle(fontSize: 20.0
+                ,color: Colors.white,
+            ),),
+           /* children: <Widget>[UserAccountsDrawerHeader(accountName: Text('Robert'),
+              accountEmail: Text('demomail@email.com'),
+              currentAccountPicture: CircleAvatar(child: Text('R'),),)
+
+
+            ],*/
+
+
+
 
           ),
 
@@ -81,6 +90,12 @@ class MyApp extends StatelessWidget{
                   leading: Icon(Icons.local_hospital),
                   title: Text('types of vaccine'),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => vaccine(),
+                      ),
+                    );
                     // Update the state of the app.
                     // ...
                   },
@@ -168,6 +183,24 @@ class MyApp extends StatelessWidget{
   }
 
   }
+class vaccine1 extends  StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Route"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            // Navigate back to first route when tapped.
+          },
+          child: Text('Go back!'),
+        ),
+      ),
+    );
+  }
+}
 
 
 void SetButtomNav(){
