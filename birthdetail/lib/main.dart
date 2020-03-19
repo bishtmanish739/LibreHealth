@@ -123,6 +123,7 @@ class MyApp extends StatelessWidget{
           ),
         ),
         body:Center(
+
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
@@ -159,31 +160,29 @@ class MyApp extends StatelessWidget{
           ),
 
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('My Kids')),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.local_hospital), title: Text('Vaccine')),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.chat), title: Text('Discuss')),
-          ],
 
-          currentIndex: selectedIndex,
-          fixedColor: Colors.deepPurple,
-          onTap: onItemTapped,
 
-        ),
       ),
     );
 
   }
-  void onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
+
   }
 
-  void setState(Null Function() param0) {}
+
+void SetButtomNav(){
+  bottomNavigationBar: BottomNavigationBar(
+      items: <BottomNavigationBarItem>[
+      BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('My Kids')),
+  BottomNavigationBarItem(
+  icon: Icon(Icons.local_hospital), title: Text('Vaccine')),
+  BottomNavigationBarItem(
+  icon: Icon(Icons.chat), title: Text('Discuss')),
+  ],
+
+
+  fixedColor: Colors.deepPurple,
+  );
 
 }
 
