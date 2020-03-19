@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget{
           DrawerHeader(
 
           child: Center(
-           child: Text('Mr.Robert ',style: TextStyle(
+           child: Text('Mr.Robert',style: TextStyle(
               fontSize: 20.0,
             ),
 
