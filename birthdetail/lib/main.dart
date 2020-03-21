@@ -1,11 +1,24 @@
 
 import 'package:flutter/material.dart';
+import 'Homepage.dart';
 import 'vaccine.dart';
-void main() => runApp(MyApp());
+import 'Homepage.dart';
+void main() => runApp(Home());
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+         //your Title,
+        home: HomePage(),
+    );
+  }
+}
+class HomePage extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() => MyApp();
+}
 
-class MyApp extends StatelessWidget{
-
-
+class MyApp extends State<HomePage> {
 
   int selectedIndex = 0;
   @override
@@ -17,7 +30,8 @@ class MyApp extends StatelessWidget{
         primarySwatch: Colors.blue,
       ),
 
-      home: Scaffold(
+
+     home: Scaffold(
         drawer: Drawer(
 
           child: ListView(
@@ -31,12 +45,7 @@ class MyApp extends StatelessWidget{
             child: Text("Robert",style: TextStyle(fontSize: 20.0
                 ,color: Colors.white,
             ),),
-           /* children: <Widget>[UserAccountsDrawerHeader(accountName: Text('Robert'),
-              accountEmail: Text('demomail@email.com'),
-              currentAccountPicture: CircleAvatar(child: Text('R'),),)
 
-
-            ],*/
 
 
 
@@ -82,6 +91,7 @@ class MyApp extends StatelessWidget{
                   leading: Icon(Icons.local_hospital),
                   title: Text('Nearby Hospital'),
                   onTap: () {
+
                     // Update the state of the app.
                     // ...
                   },
@@ -93,7 +103,7 @@ class MyApp extends StatelessWidget{
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => vaccine(),
+                        builder: (context) => vaccine1(),
                       ),
                     );
                     // Update the state of the app.
@@ -175,12 +185,47 @@ class MyApp extends StatelessWidget{
           ),
 
         ),
+        bottomNavigationBar: BottomNavigationBar(
+      items: <BottomNavigationBarItem>[
+      BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('My Kids')),
+    BottomNavigationBarItem(
+    icon: Icon(Icons.local_hospital), title: Text('Vaccine')),
+    BottomNavigationBarItem(
+    icon: Icon(Icons.chat), title: Text('Discuss')),
+    ],
+    currentIndex: selectedIndex,
+    onTap: (int index){
+        setState(() {
+          selectedIndex=index;
+          if(index==1){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => vaccine()),
+            );
+          }
+          if(index==2){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => vaccine1()),
+            );
+          }
+
+        });
+
+    },
+
+    fixedColor: Colors.deepPurple,
+    ) ,
 
 
       ),
     );
 
   }
+
+
+
+
 
   }
 class vaccine1 extends  StatelessWidget {
@@ -188,19 +233,18 @@ class vaccine1 extends  StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Second Route"),
+        title: Text("Discussion"),
       ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            // Navigate back to first route when tapped.
-          },
-          child: Text('Go back!'),
+      body: Align(
+        child: Row(
+         children: <Widget>[Text("Chat Now"),Text("Send Mgs"),Icon(Icons.chat),],
         ),
       ),
     );
   }
 }
+
+
 
 
 void SetButtomNav(){
