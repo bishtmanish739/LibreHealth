@@ -1,8 +1,15 @@
 
+import 'package:birthdetail/childinfo.dart';
 import 'package:flutter/material.dart';
-import 'Homepage.dart';
+import 'package:share/share.dart';
+
+
 import 'vaccine.dart';
-import 'Homepage.dart';
+import 'Settings.dart';
+import 'Discussion.dart';
+import 'Settings.dart';
+import 'NearbyHospitals.dart';
+import 'ShareThisApp.dart';
 void main() => runApp(Home());
 class Home extends StatelessWidget {
   @override
@@ -67,6 +74,12 @@ class MyApp extends State<HomePage> {
                   leading: Icon(Icons.person),
                   title: Text('Child 1'),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => childinfo(),
+                      ),
+                    );
                     // Update the state of the app.
                     // ...
                   },
@@ -75,6 +88,12 @@ class MyApp extends State<HomePage> {
                   leading: Icon(Icons.person),
                   title: Text('Child 2'),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => childinfo(),
+                      ),
+                    );
                     // Update the state of the app.
                     // ...
                   },
@@ -83,6 +102,12 @@ class MyApp extends State<HomePage> {
                   leading: Icon(Icons.person),
                   title: Text('Child 3'),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => childinfo(),
+                      ),
+                    );
                     // Update the state of the app.
                     // ...
                   },
@@ -91,6 +116,13 @@ class MyApp extends State<HomePage> {
                   leading: Icon(Icons.local_hospital),
                   title: Text('Nearby Hospital'),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NearbyHospital(),
+                      ),
+                    );
+
 
                     // Update the state of the app.
                     // ...
@@ -103,7 +135,7 @@ class MyApp extends State<HomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => vaccine1(),
+                        builder: (context) => vaccine(),
                       ),
                     );
                     // Update the state of the app.
@@ -114,6 +146,12 @@ class MyApp extends State<HomePage> {
                   leading: Icon(Icons.chat),
                   title: Text('Discussion'),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Discussion(),
+                      ),
+                    );
                     // Update the state of the app.
                     // ...
                   },
@@ -122,6 +160,11 @@ class MyApp extends State<HomePage> {
                   leading: Icon(Icons.share),
                   title: Text('Share This App'),
                   onTap: () {
+                    RenderBox box = context.findRenderObject();
+                    Share.share('Hello this is a test',
+                        sharePositionOrigin:
+                        box.localToGlobal(Offset.zero) &
+                        box.size);
                     // Update the state of the app.
                     // ...
                   },
@@ -130,6 +173,12 @@ class MyApp extends State<HomePage> {
                   leading: Icon(Icons.settings),
                   title: Text('Settings'),
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => settings(),
+                      ),
+                    );
                     // Update the state of the app.
                     // ...
                   },
@@ -158,6 +207,12 @@ class MyApp extends State<HomePage> {
                 title: Text('Rony'),
                 subtitle: Text('Age-26 Month'),
                 onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => childinfo(),
+                    ),
+                  );
                   // Update the state of the app.
                   // ...
                 },
@@ -167,6 +222,12 @@ class MyApp extends State<HomePage> {
                 title: Text('Devid'),
                 subtitle: Text('Age-6 Month'),
                 onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => childinfo(),
+                    ),
+                  );
                   // Update the state of the app.
                   // ...
                 },
@@ -176,6 +237,12 @@ class MyApp extends State<HomePage> {
                 title: Text('Joy'),
                 subtitle: Text('Age 5 year'),
                 onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => childinfo(),
+                    ),
+                  );
                   // Update the state of the app.
                   // ...
                 },
@@ -206,7 +273,7 @@ class MyApp extends State<HomePage> {
           if(index==2){
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => vaccine1()),
+              MaterialPageRoute(builder: (context) =>Discussion()),
             );
           }
 
@@ -228,21 +295,7 @@ class MyApp extends State<HomePage> {
 
 
   }
-class vaccine1 extends  StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Discussion"),
-      ),
-      body: Align(
-        child: Row(
-         children: <Widget>[Text("Chat Now"),Text("Send Mgs"),Icon(Icons.chat),],
-        ),
-      ),
-    );
-  }
-}
+
 
 
 

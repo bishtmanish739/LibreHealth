@@ -4,7 +4,7 @@ class vaccine extends  StatelessWidget {
 Widget build(BuildContext context) {
   return Scaffold(
     appBar: AppBar(
-      title: Text("Second Route"),
+      title: Text("Types Of vaccine "),
     ),
     body: Center(
       child: RaisedButton(
